@@ -1,0 +1,51 @@
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .titulo {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .input,
+  .selectInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .buttonSave {
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    background-color: #89b72d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttonSave:hover {
+    background-color: #76a123;
+  }
+  

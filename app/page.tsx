@@ -1,102 +1,144 @@
+'use client';
+
 import Image from "next/image";
+import Link from "next/link";
+import styles from "../app/styles/Home.module.css"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const screens = [
+    {
+      title: "Relatórios",
+      description: "Visualize e gere relatórios completos",
+      path: "/relatorios",
+      icon: "📊"
+    },
+    {
+      title: "Agendamentos",
+      description: "Gerencie todos os agendamentos",
+      path: "/agendamentos",
+      icon: "📅"
+    },
+    {
+      title: "Configurações",
+      description: "Configure as preferências do sistema",
+      path: "/configuracoes",
+      icon: "⚙️"
+    },
+    {
+      title: "TCCs",
+      description: "Gerencie trabalhos de conclusão de curso",
+      path: "/tcc",
+      icon: "📚"
+    },
+    {
+      title: "Perfil",
+      description: "Acesse seu perfil de usuário",
+      path: "/perfil",
+      icon: "👤"
+    },
+    {
+      title: "Login",
+      description: "Acesse o sistema",
+      path: "/login",
+      icon: "🔐"
+    }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  return (
+    <div className="min-h-screen bg-gray-50 p-8">
+      <header className="max-w-6xl mx-auto mb-12">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-4">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/logo.png"
+              alt="Logo do Sistema"
+              width={48}
+              height={48}
+              className="rounded-lg"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <h1 className="text-3xl font-bold text-gray-800">Telas TCC</h1>
+          </div>
+          <nav className="hidden md:block">
+            <ul className="flex gap-6">
+              <li>
+                <Link href="/" className="text-gray-600 hover:text-gray-900 font-medium">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/sobre" className="text-gray-600 hover:text-gray-900 font-medium">
+                  Sobre
+                </Link>
+              </li>
+              <li>
+                <Link href="/contato" className="text-gray-600 hover:text-gray-900 font-medium">
+                  Contato
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto">
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Bem-vindo ao Sistema Telas TCC</h2>
+          <p className="text-gray-600 max-w-3xl">
+            Plataforma completa para gerenciamento de trabalhos acadêmicos e agendamentos.
+            Selecione abaixo a tela que deseja acessar:
+          </p>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {screens.map((screen, index) => (
+            <Link
+              key={index}
+              href={screen.path}
+              className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100 flex flex-col"
+            >
+              <div className="text-4xl mb-4">{screen.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">{screen.title}</h3>
+              <p className="text-gray-600 flex-grow">{screen.description}</p>
+              <div className="mt-4 text-blue-600 font-medium flex items-center gap-1">
+                Acessar
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          ))}
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="max-w-6xl mx-auto mt-16 pt-8 border-t border-gray-200">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} Telas TCC. Todos os direitos reservados.
+            </p>
+          </div>
+          <div className="flex gap-6">
+            <Link href="/termos" className="text-gray-500 hover:text-gray-700 text-sm">
+              Termos de Uso
+            </Link>
+            <Link href="/privacidade" className="text-gray-500 hover:text-gray-700 text-sm">
+              Política de Privacidade
+            </Link>
+            <Link href="/suporte" className="text-gray-500 hover:text-gray-700 text-sm">
+              Suporte
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   );

@@ -1,0 +1,112 @@
+/* Modal - Backdrop (fundo escuro) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  /* Formulário */
+  .form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+  
+  /* Título do formulário */
+  .form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Labels e Inputs */
+  .label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #333;
+  }
+  
+  .input,
+  .selectInput {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: border 0.3s ease;
+  }
+  
+  /* Efeito de foco nos inputs */
+  .input:focus,
+  .selectInput:focus {
+    border-color: #89b72d;
+    outline: none;
+    background-color: #ffffff;
+  }
+  
+  /* Botões */
+  .buttonSubmit,
+  .buttonClose {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttonSubmit {
+    background-color: #89b72d;
+    color: white;
+  }
+  
+  .buttonSubmit:hover {
+    background-color: #76a82b;
+  }
+  
+  .buttonClose {
+    background-color: #f44336;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .buttonClose:hover {
+    background-color: #e53935;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .form {
+      padding: 20px;
+    }
+  
+    .input,
+    .selectInput {
+      padding: 10px;
+    }
+  
+    .buttonSubmit,
+    .buttonClose {
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+  }
+  

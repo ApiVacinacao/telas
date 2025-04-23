@@ -1,0 +1,172 @@
+/* Container geral */
+.container {
+    padding: 20px;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Tabela */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  /* Estilo das células de tabela */
+  .th, .td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Título da tabela */
+  .th {
+    background: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Linha da tabela ao passar o mouse */
+  .tr:hover {
+    background: rgba(137, 183, 45, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  /* Botão de "Ver Detalhes" */
+  .btnDetails {
+    background-color: #89b72d;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 14px;
+  }
+  
+  .btnDetails:hover {
+    background-color: #7a9c2e;
+    transform: scale(1.05);
+  }
+  
+  /* Botão Flutuante */
+  .floatingBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #89b72d;
+    color: white;
+    width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .floatingBtn i {
+    font-size: 22px;
+  }
+  
+  .floatingBtn:hover {
+    background: #7a9c2e;
+    transform: scale(1.05);
+  }
+  
+  /* Barra de Pesquisa */
+  .searchBar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    padding: 5px 15px;
+    background-color: #f8f9fa;
+  }
+  
+  .searchBar input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    flex-grow: 1;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #333;
+  }
+  
+  .searchBar button {
+    background-color: #89b72d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .searchBar button:hover {
+    background-color: #7a9c2e;
+    transform: scale(1.05);
+  }
+  
+  .searchBar button i {
+    font-size: 18px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .table {
+      font-size: 14px;
+    }
+  
+    .floatingBtn {
+      width: 160px;
+      font-size: 16px;
+    }
+  
+    .header {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .floatingBtn {
+      width: 140px;
+      font-size: 14px;
+      bottom: 20px;
+      right: 20px;
+    }
+  
+    .header {
+      font-size: 20px;
+    }
+  
+    .th, .td {
+      padding: 10px;
+    }
+  }
+  

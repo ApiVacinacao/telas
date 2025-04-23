@@ -1,0 +1,48 @@
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .titulo {
+    margin-bottom: 24px;
+    color: #2d34b7;
+    font-size: 24px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .button {
+    background: #2d34b7;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .button:hover {
+    background: #1e248c;
+  }
+  
+  .selectInput {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  

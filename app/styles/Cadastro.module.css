@@ -1,0 +1,49 @@
+:root {
+    --azul: #2d34b7;
+    --azul-escuro: #1f2591;
+    --cinza: #f8f9fa;
+    --texto: #333;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f4f6f9, #e8ecf1);
+  }
+  
+  .title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--azul-escuro);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .buttonsWrapper {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .card {
+    background: white;
+    border: 2px solid var(--azul);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul-escuro);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .card:hover {
+    background: var(--azul);
+    color: white;
+  }
+  

@@ -1,0 +1,99 @@
+:root {
+    --verde: #2d34b7;
+    --verde-escuro: #1f2591;
+    --cinza-claro: #f8f9fa;
+    --cinza-texto: #5a5a5a;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .loginContainer {
+    width: 380px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    text-align: center;
+    margin: 4rem auto;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  }
+  
+  .logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    color: var(--verde-escuro);
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  .inputGroup {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .inputGroup label {
+    display: block;
+    color: var(--cinza-texto);
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s;
+  }
+  
+  .inputGroup input:focus {
+    border-color: var(--verde);
+    outline: none;
+  }
+  
+  .rememberForgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkboxContainer input {
+    margin-right: 8px;
+  }
+  
+  .forgotLink {
+    color: var(--verde);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  .btnLogin {
+    width: 100%;
+    padding: 14px;
+    background: var(--verde);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btnLogin:hover {
+    background: var(--verde-escuro);
+  }
+  

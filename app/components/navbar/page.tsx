@@ -2,17 +2,28 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation"; // hook para pegar rota atual
+import { usePathname } from "next/navigation";
 import styles from "../navbar/navbar.module.css";
+
+import {
+  MdEditNote,
+  MdLocalHospital,
+  MdPerson,
+  MdEvent,
+  MdLocationOn,
+  MdMedicalServices,
+  MdAssessment,
+  MdSettings,
+  MdExpandMore,
+  MdExpandLess,
+} from "react-icons/md";
 
 const Navbar = () => {
   const pathname = usePathname();
 
-  // Estado para abrir o menu Cadastro automaticamente se a rota atual for um subitem dele
   const [cadastroOpen, setCadastroOpen] = useState(false);
 
   useEffect(() => {
-    // Verifica se o pathname começa com "/Cadastro" para abrir o menu e marcar
     if (pathname.startsWith("/Cadastro")) {
       setCadastroOpen(true);
     } else {
@@ -24,7 +35,6 @@ const Navbar = () => {
     setCadastroOpen(!cadastroOpen);
   };
 
-  // Função para saber se o link está ativo, simples comparação exata ou por prefixo
   const isActive = (link: string) => {
     return pathname === link || pathname.startsWith(link + "/");
   };
@@ -42,9 +52,11 @@ const Navbar = () => {
               onClick={toggleCadastro}
               aria-expanded={cadastroOpen}
             >
-              <span className={styles.icon}>📝</span>
+              <span className={styles.icon}><MdEditNote size={24} /></span>
               <span className={styles.navText}>Cadastro</span>
-              <span className={styles.chevron}>{cadastroOpen ? "▲" : "▼"}</span>
+              <span className={styles.chevron}>
+                {cadastroOpen ? <MdExpandLess size={20} /> : <MdExpandMore size={20} />}
+              </span>
             </button>
             {cadastroOpen && (
               <ul className={styles.subList}>
@@ -55,6 +67,7 @@ const Navbar = () => {
                       isActive("/Cadastro/paciente") ? styles.activeSubLink : ""
                     }`}
                   >
+                    <MdPerson size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} />
                     Paciente
                   </Link>
                 </li>
@@ -65,6 +78,7 @@ const Navbar = () => {
                       isActive("/Cadastro/profissional") ? styles.activeSubLink : ""
                     }`}
                   >
+                    <MdLocalHospital size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} />
                     Médico
                   </Link>
                 </li>
@@ -75,6 +89,7 @@ const Navbar = () => {
                       isActive("/Cadastro/local") ? styles.activeSubLink : ""
                     }`}
                   >
+                    <MdLocationOn size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} />
                     Local de Atendimento
                   </Link>
                 </li>
@@ -85,6 +100,7 @@ const Navbar = () => {
                       isActive("/Cadastro/agendamento") ? styles.activeSubLink : ""
                     }`}
                   >
+                    <MdEvent size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} />
                     Agendamento
                   </Link>
                 </li>
@@ -97,43 +113,67 @@ const Navbar = () => {
               href="/Pacientes"
               className={`${styles.navLink} ${isActive("/Pacientes") ? styles.active : ""}`}
             >
-              <span className={styles.icon}>🩺</span>
+              <MdMedicalServices size={24} className={styles.icon} />
               <span className={styles.navText}>Pacientes</span>
             </Link>
           </li>
+
           <li className={styles.navItem}>
             <Link
               href="/Medicos"
               className={`${styles.navLink} ${isActive("/Medicos") ? styles.active : ""}`}
             >
-              <span className={styles.icon}>👩‍⚕️</span>
+              <MdLocalHospital size={24} className={styles.icon} />
               <span className={styles.navText}>Médicos</span>
             </Link>
           </li>
+
           <li className={styles.navItem}>
             <Link
               href="/Agendamento"
               className={`${styles.navLink} ${isActive("/Agendamento") ? styles.active : ""}`}
             >
-              <span className={styles.icon}>📅</span>
+              <MdEvent size={24} className={styles.icon} />
               <span className={styles.navText}>Agendamentos</span>
             </Link>
           </li>
+
+          <li className={styles.navItem}>
+            <Link
+              href="/Locais"
+              className={`${styles.navLink} ${isActive("/Locais") ? styles.active : ""}`}
+            >
+              <MdLocationOn size={24} className={styles.icon} />
+              <span className={styles.navText}>Locais</span>
+            </Link>
+          </li>
+
+          <li className={styles.navItem}>
+            <Link
+              href="/Consulta"
+              className={`${styles.navLink} ${isActive("/Consulta") ? styles.active : ""}`}
+            >
+              <MdMedicalServices size={24} className={styles.icon} />
+              <span className={styles.navText}>Consultas</span>
+            </Link>
+          </li>
+
           <li className={styles.navItem}>
             <Link
               href="/relatorios"
               className={`${styles.navLink} ${isActive("/relatorios") ? styles.active : ""}`}
             >
-              <span className={styles.icon}>📊</span>
+              <MdAssessment size={24} className={styles.icon} />
               <span className={styles.navText}>Relatórios</span>
             </Link>
           </li>
+
           <li className={styles.navItem}>
             <Link
               href="/configuracoes"
               className={`${styles.navLink} ${isActive("/configuracoes") ? styles.active : ""}`}
             >
-              <span className={styles.icon}>⚙️</span>
+              <MdSettings size={24} className={styles.icon} />
               <span className={styles.navText}>Configurações</span>
             </Link>
           </li>

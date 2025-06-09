@@ -12,7 +12,8 @@ interface Appointment {
   professional: string;
   location: string;
   notes: string;
-  patient: string;  // Adicionando o paciente
+  patient: string;
+  ativo: boolean;
 }
 
 const AgendamentosList: React.FC = () => {
@@ -24,7 +25,8 @@ const AgendamentosList: React.FC = () => {
       professional: 'Dr. Ana Silva',
       location: 'UBS Jardim das Flores - Sala 12',
       notes: 'Trazer exames recentes e carteirinha do SUS.',
-      patient: 'Paciente 1',  // Exemplo de paciente
+      patient: 'Paciente 1',
+      ativo: true,
     },
     {
       date: '28/10/2023',
@@ -33,7 +35,8 @@ const AgendamentosList: React.FC = () => {
       professional: 'Enf. Roberto Souza',
       location: 'UBS Central - Sala 5',
       notes: 'Jejum de 8 horas.',
-      patient: 'Paciente 2',  // Exemplo de paciente
+      patient: 'Paciente 2',
+      ativo: true,
     },
     {
       date: '29/10/2023',
@@ -42,7 +45,8 @@ const AgendamentosList: React.FC = () => {
       professional: 'Dr. João Lima',
       location: 'Clínica Olhar Certo - Sala 3',
       notes: 'Levar óculos se possuir.',
-      patient: 'Paciente 3',  // Exemplo de paciente
+      patient: 'Paciente 3',
+      ativo: true,
     },
   ]);
 
@@ -64,6 +68,14 @@ const AgendamentosList: React.FC = () => {
     setAppointments((prevAppointments) => [...prevAppointments, appointment]);
   };
 
+  const toggleAtivo = (index: number) => {
+    setAppointments(prev =>
+      prev.map((appointment, i) =>
+        i === index ? { ...appointment, ativo: !appointment.ativo } : appointment
+      )
+    );
+  };
+
   return (
     <main className={styles.mainContent}>
       <div className={styles.header}>
@@ -80,28 +92,44 @@ const AgendamentosList: React.FC = () => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={styles.th}>Paciente</th> {/* Coluna para paciente */}
+            <th className={styles.th}>Paciente</th>
             <th className={styles.th}>Data</th>
             <th className={styles.th}>Hora</th>
             <th className={styles.th}>Serviço</th>
             <th className={styles.th}>Profissional</th>
-            <th className={styles.th}>Ação</th>
+            <th className={styles.th}>Status</th>
+            <th className={styles.th}>Ações</th>
           </tr>
         </thead>
         <tbody>
           {appointments.map((appointment, index) => (
             <tr key={index} className={styles.tr}>
-              <td className={styles.td}>{appointment.patient}</td> {/* Nome do paciente */}
+              <td className={styles.td}>{appointment.patient}</td>
               <td className={styles.td}>{appointment.date}</td>
               <td className={styles.td}>{appointment.time}</td>
               <td className={styles.td}>{appointment.service}</td>
               <td className={styles.td}>{appointment.professional}</td>
+              <td className={styles.td}>
+                <span
+                  className={
+                    appointment.ativo ? styles.ativo : styles.inativo
+                  }
+                >
+                  {appointment.ativo ? 'Ativo' : 'Inativo'}
+                </span>
+              </td>
               <td className={styles.td}>
                 <button
                   onClick={() => handleShowDetails(appointment)}
                   className={styles.btnDetails}
                 >
                   Ver Detalhes
+                </button>
+                <button
+                  className={styles.btnToggle}
+                  onClick={() => toggleAtivo(index)}
+                >
+                  {appointment.ativo ? 'Inativar' : 'Ativar'}
                 </button>
               </td>
             </tr>
@@ -116,14 +144,13 @@ const AgendamentosList: React.FC = () => {
         <i className="fas fa-plus"></i> Novo Agendamento
       </button>
 
-      {/* Modal de Novo Agendamento */}
       {isNewAppointmentModalOpen && (
-        <NovoAgendamento onAddAppointment={handleAddAppointment} onClose={function (): void {
-                  throw new Error('Function not implemented.');
-              } } />
+        <NovoAgendamento
+          onAddAppointment={handleAddAppointment}
+          onClose={() => setIsNewAppointmentModalOpen(false)}
+        />
       )}
 
-      {/* Modal de Detalhes */}
       {isModalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>

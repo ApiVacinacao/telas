@@ -1,0 +1,186 @@
+.container {
+  padding: 2rem;
+  padding-top: 80px; /* Espaço pra navbar fixa */
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+   color: #000;
+}
+
+/* Botão adicionar */
+.addBtn {
+  padding: 0.7rem 1.2rem;
+  background-color: #28a745;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.addBtn:hover {
+  background-color: #218838;
+}
+
+/* Lista vertical */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: #f9f9f9;
+  padding: 1.2rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Status */
+.ativo {
+  color: green;
+  font-weight: bold;
+}
+
+.inativo {
+  color: red;
+  font-weight: bold;
+}
+
+/* Botões dentro do card */
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.editBtn, .toggleBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.editBtn {
+  background-color: #007bff;
+}
+
+.editBtn:hover {
+  background-color: #0056b3;
+}
+
+.toggleBtn {
+  background-color: #6c757d;
+}
+
+.toggleBtn:hover {
+  background-color: #565e64;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+
+/* Modal Content */
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+
+.modalContent label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.modalContent input[type="text"] {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.modalContent input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+/* Ações do modal */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* Botões do modal */
+.saveButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.saveButton:hover {
+  background-color: #218838;
+}
+
+.cancelButton {
+  background-color: #ccc;
+  color: #333;
+  border-radius: 8px;
+  padding: 0.6rem 1.3rem;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.cancelButton:hover {
+  background-color: #b3b3b3;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botoes {
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}

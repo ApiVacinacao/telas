@@ -14,6 +14,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
+    <>
     <div className={styles.loginContainer}>
       <img src="/aa.png" alt="Logo" className={styles.logo} />
       <h1 className={styles.title}>Acesse sua conta</h1>
@@ -50,13 +51,14 @@ const LoginPage: React.FC = () => {
           />
           <label htmlFor="remember">Lembrar-me</label>
         </div>
-        <a href="#" className={styles.forgotLink}>Esqueceu a senha?</a>
+        <a href="/esqueci-senha" className={styles.forgotLink}>Esqueceu a senha?</a>
       </div>
 
       <button className={styles.btnLogin} onClick={handleLogin}>
         Acessar
       </button>
     </div>
+    </>
   );
 };
 

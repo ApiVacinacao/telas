@@ -19,10 +19,16 @@ export default function Home() {
       icon: "📊"
     },
     {
-      title: "Configurações",
-      description: "Personalize preferências do sistema.",
-      path: "/configuracoes",
-      icon: "⚙️"
+      title: "Locais",
+      description: "Gerencie os locais cadastrados no sistema.",
+      path: "/Locais",
+      icon: "📍"
+    },
+    {
+      title: "Tipos de Consulta",
+      description: "Configure os tipos de consulta disponíveis.",
+      path: "/Cadastro/tipo-consulta",
+      icon: "🩺"
     }
   ];
 
@@ -37,7 +43,12 @@ export default function Home() {
 
         <section className="optionsContainer">
           {options.map((item, index) => (
-            <Link key={index} href={item.path} className="optionCard floating" style={{ animationDelay: `${index * 0.2}s` }}>
+            <Link
+              key={index}
+              href={item.path}
+              className="optionCard floating"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
               <div className="icon">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>

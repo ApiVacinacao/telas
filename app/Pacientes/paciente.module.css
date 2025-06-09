@@ -1,0 +1,128 @@
+.content {
+  padding: 2rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.info {
+  flex: 1;
+  color: #374151;
+}
+
+.info strong {
+  font-size: 1.2rem;
+  color: #111827;
+}
+
+.info p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.ativo {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.inativo {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 1.5rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.45rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.editButton {
+  background-color: #2563eb;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.deleteButton {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #d97706;
+  transform: translateY(-1px);
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .botoes {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .editButton,
+  .deleteButton {
+    width: auto;
+  }
+}

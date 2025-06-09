@@ -4,14 +4,22 @@ import Sidebar from '../components/navbar/page';
 
 const AgendamentosPage: React.FC = () => {
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
-      {/* Sidebar */}
-      <Sidebar />
-
-      {/* Main Content */}
-      <div style={{ flex: 1 }}>
-        <AgendamentosList />
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#f3f4f6' }}>
+      <div style={{ width: '240px', boxShadow: '2px 0 8px rgba(0,0,0,0.05)', zIndex: 10 }}>
+        <Sidebar />
       </div>
+
+      <main
+        style={{
+          flex: 1,
+          padding: '2.5rem 3rem',
+          backgroundColor: '#ffffff',
+          borderTopLeftRadius: '1rem',
+          minHeight: '100vh',
+        }}
+      >
+        <AgendamentosList />
+      </main>
     </div>
   );
 };

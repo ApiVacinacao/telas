@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Navbar from '../../components/navbar/page';
-import styles from '../../styles/FormulariosCadastro.module.css';
+import styles from '../agendamento/agendamento.module.css';
 import { useRouter } from 'next/navigation';
 
 const CadastroAgendamento: React.FC = () => {

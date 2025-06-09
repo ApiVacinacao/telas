@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styles from "../styles/NovoAgendamento.module.css";
 
 interface Appointment {
@@ -20,24 +20,26 @@ interface Props {
 
 const NovoAgendamento: React.FC<Props> = ({ onClose, onAddAppointment }) => {
   const [formData, setFormData] = useState({
-    date: '',
-    time: '',
-    service: '',
-    professional: '',
-    patient: '',
-    location: '',
+    date: "",
+    time: "",
+    service: "",
+    professional: "",
+    patient: "",
+    location: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({ ...prevState, [name]: value }));
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newAppointment: Appointment = {
       ...formData,
-      notes: 'Nenhuma observação',
+      notes: "Nenhuma observação",
     };
     onAddAppointment(newAppointment);
     onClose();
@@ -111,16 +113,24 @@ const NovoAgendamento: React.FC<Props> = ({ onClose, onAddAppointment }) => {
           required
         >
           <option value="">Selecione o local</option>
-          <option value="UBS Jardim das Flores - Sala 12">UBS Jardim das Flores - Sala 12</option>
+          <option value="UBS Jardim das Flores - Sala 12">
+            UBS Jardim das Flores - Sala 12
+          </option>
           <option value="UBS Central - Sala 5">UBS Central - Sala 5</option>
-          <option value="Clínica Olhar Certo - Sala 3">Clínica Olhar Certo - Sala 3</option>
+          <option value="Clínica Olhar Certo - Sala 3">
+            Clínica Olhar Certo - Sala 3
+          </option>
         </select>
 
         <div className={styles.actions}>
           <button type="submit" className={styles.buttonSubmit}>
             Salvar Agendamento
           </button>
-          <button type="button" className={styles.buttonClose} onClick={onClose}>
+          <button
+            type="button"
+            className={styles.buttonClose}
+            onClick={onClose}
+          >
             Fechar
           </button>
         </div>

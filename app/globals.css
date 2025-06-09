@@ -1,109 +1,186 @@
-body {
-  display: flex;
-  min-height: 100vh;
+:root {
+  --bg-start: #0f172a;
+  --bg-end: #1e293b;
+  --text-color: #f8fafc;
+  --card-bg: rgba(30, 41, 59, 0.8);
+  --card-hover: rgba(51, 65, 85, 0.9);
+  --accent: #38bdf8;
+  --border-radius: 18px;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-#root {
-  display: flex;
-  width: 100%;
-}
-
-aside.sidebar {
-  width: 250px;
-  background-color: #f4f4f4;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 1000;
-}
-
-main {
-  margin-left: 310px;
-  padding: 20px;
-  flex-grow: 1;
-  width: 980px;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-aside.sidebar .logo {
-  width: 100%;
-  max-width: 200px;
-  margin-bottom: 20px;
-}
-
-aside.sidebar nav ul {
-  list-style-type: none;
   padding: 0;
+  box-sizing: border-box;
 }
 
-aside.sidebar nav ul li {
-  margin: 10px 0;
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text-color);
+  overflow-x: hidden;
 }
 
-aside.sidebar nav ul li a {
+a {
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  color: inherit;
 }
 
-aside.sidebar nav ul li a:hover {
-  color: #89b72d;
+.bgContainer {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.cards {
+.bgContainer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle, #38bdf830 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: moveBg 30s linear infinite;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+@keyframes moveBg {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(100px, 100px);
+  }
+}
+
+.homePage {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 2rem;
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex: 1;
-}
-
-.filterSection {
-  margin-top: 20px;
-}
-
-.reportPreview {
-  margin-top: 20px;
-}
-
-.reportTable {
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.reportTable th, .reportTable td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.actions {
-  margin-top: 20px;
+.header {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-.btnExport, .btnPrint {
-  padding: 10px 20px;
-  background-color: #89b72d;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: var(--accent);
+  text-shadow: 0 2px 10px rgba(56, 189, 248, 0.4);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-top: 0.5rem;
+}
+
+.optionsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseIcon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.optionCard {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
   cursor: pointer;
+  backdrop-filter: blur(8px);
+  animation: fadeUp 1s ease forwards;
 }
 
-.btnExport:hover, .btnPrint:hover {
-  background-color: #76a623;
+.optionCard:hover {
+  background-color: var(--card-hover);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 45px rgba(56, 189, 248, 0.3);
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+.icon {
+  font-size: 3rem;
+  animation: pulseIcon 1.8s infinite ease-in-out;
+}
+
+.optionCard h3 {
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.optionCard p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.access {
+  margin-top: auto;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

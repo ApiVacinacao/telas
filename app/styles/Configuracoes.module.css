@@ -1,51 +1,70 @@
+/* Configuracoes.module.css */
+
 .container {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  max-width: 480px;
+  margin: 40px auto;
+  background-color: #f4f7ff; /* azul claro suave */
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(42, 82, 190, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222f51;
+}
+
+.section {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #1a3c82; /* azul escuro */
+}
+
+.input,
+.selectInput {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1.8px solid #aac3ff;
+  background-color: white;
+  font-size: 1rem;
+  color: #222f51;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus,
+.selectInput:focus {
+  border-color: #2a52be;
+  outline: none;
+  background-color: #e6ecff;
+}
+
+.buttonSave {
+  width: 100%;
+  background-color: #2a52be;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(42, 82, 190, 0.35);
+}
+
+.buttonSave:hover {
+  background-color: #224a99;
+}
+
+/* Responsividade */
+
+@media (max-width: 500px) {
+  .container {
+    margin: 20px 15px;
+    padding: 25px 20px;
   }
-  
-  .titulo {
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    color: #333;
-  }
-  
-  .section {
-    margin-bottom: 1.5rem;
-  }
-  
-  .label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #444;
-  }
-  
-  .input,
-  .selectInput {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-  }
-  
-  .buttonSave {
-    margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    background-color: #89b72d;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .buttonSave:hover {
-    background-color: #76a123;
-  }
-  
+}

@@ -2,41 +2,68 @@
 
 import React, { useState } from 'react';
 import Navbar from '../../components/navbar/page';
-import styles from '../../styles/FormulariosCadastro.module.css';
+import styles from './localAtendimento.module.css';
 
-const CadastroLocal: React.FC = () => {
-  const [nomeLocal, setNomeLocal] = useState('');
-  const [sala, setSala] = useState('');
+const CadastroLocalAtendimento: React.FC = () => {
+  const [nome, setNome] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
   const handleSubmit = () => {
-    alert('Local de atendimento cadastrado!');
+    if (!nome || !endereco || !telefone) {
+      alert('Por favor, preencha todos os campos!');
+      return;
+    }
+
+    // Aqui você pode enviar para a API quando tiver
+    setMensagem('Local de Atendimento cadastrado com sucesso!');
+    setNome('');
+    setEndereco('');
+    setTelefone('');
   };
 
   return (
     <>
       <Navbar />
-      <div className={styles.container}>
-        <h2>Cadastrar Local de Atendimento</h2>
-        <input
-          type="text"
-          placeholder="Nome do local"
-          value={nomeLocal}
-          onChange={(e) => setNomeLocal(e.target.value)}
-          className={styles.input}
-        />
-        <input
-          type="text"
-          placeholder="Sala"
-          value={sala}
-          onChange={(e) => setSala(e.target.value)}
-          className={styles.input}
-        />
-        <button className={styles.button} onClick={handleSubmit}>
-          Salvar
-        </button>
-      </div>
+      <main className={styles.content}>
+        <div className={styles.formContainer}>
+          <h1>Cadastro de Local de Atendimento</h1>
+          <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
+            <label htmlFor="nome">Nome do Local</label>
+            <input
+              id="nome"
+              type="text"
+              placeholder="Digite o nome do local"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+            />
+
+            <label htmlFor="endereco">Endereço</label>
+            <input
+              id="endereco"
+              type="text"
+              placeholder="Digite o endereço"
+              value={endereco}
+              onChange={(e) => setEndereco(e.target.value)}
+            />
+
+            <label htmlFor="telefone">Telefone</label>
+            <input
+              id="telefone"
+              type="tel"
+              placeholder="Digite o telefone"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
+            />
+
+            <button type="submit">Cadastrar Local</button>
+            {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
+          </form>
+        </div>
+      </main>
     </>
   );
 };
 
-export default CadastroLocal;
+export default CadastroLocalAtendimento;

@@ -43,11 +43,8 @@ const CadastroMedico: React.FC = () => {
             <label>Nome*</label>
             <input type="text" name="nome" value={formData.nome} onChange={handleChange} required />
 
-            <label>Email*</label>
+            <label>CPF*</label>
             <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-
-            <label>Senha*</label>
-            <input type="password" name="senha" value={formData.senha} onChange={handleChange} required />
 
             <label>CRM*</label>
             <input type="text" name="crm" value={formData.crm} onChange={handleChange} required />

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from '../../styles/Login.module.css'; // Usando mesmo estilo da tela de login
+import styles from '../styles/Login.module.css'; // Usando mesmo estilo da tela de login
 
 const ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');

@@ -41,68 +41,82 @@ const CadastroPaciente: React.FC = () => {
 
   return (
     <>
-    <Navbar/>
-    <main className={styles.content}>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Cadastro de Paciente</h1>
+      <Navbar />
+      <main className={styles.content}>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Cadastro de Paciente</h1>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="nome">Nome *</label>
-          <input
-            id="nome"
-            type="text"
-            value={nome}
-            onChange={e => setNome(e.target.value)}
-            placeholder="Digite o nome completo"
-            className={styles.input}
-            required
-          />
+          <div className={styles.formGroup}>
+            <label htmlFor="nome">Nome *</label>
+            <input
+              id="nome"
+              type="text"
+              value={nome}
+              onChange={e => setNome(e.target.value)}
+              placeholder="Digite o nome completo"
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="email">E-mail *</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="exemplo@email.com"
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="cpf">CPF *</label>
+            <input
+              id="cpf"
+              type="cpf"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="exemplo@email.com"
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="cns">CNS *</label>
+            <input
+              id="cns"
+              type="text"
+              value={cns}
+              onChange={e => setCns(e.target.value)}
+              placeholder="Número do Cartão Nacional de Saúde"
+              className={styles.input}
+              required
+            />
+          </div>
+          
+          <div className={styles.formGroup}>
+            <label htmlFor="senha">Senha *</label>
+            <input
+              id="senha"
+              type="password"
+              value={senha}
+              onChange={e => setSenha(e.target.value)}
+              placeholder="Crie uma senha segura"
+              className={styles.input}
+              required
+            />
+          </div>
+
+
+          <button className={styles.button} onClick={handleSubmit}>
+            Cadastrar Paciente
+          </button>
         </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="email">E-mail *</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="exemplo@email.com"
-            className={styles.input}
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="senha">Senha *</label>
-          <input
-            id="senha"
-            type="password"
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
-            placeholder="Crie uma senha segura"
-            className={styles.input}
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="cns">CNS *</label>
-          <input
-            id="cns"
-            type="text"
-            value={cns}
-            onChange={e => setCns(e.target.value)}
-            placeholder="Número do Cartão Nacional de Saúde"
-            className={styles.input}
-            required
-          />
-        </div>
-
-        <button className={styles.button} onClick={handleSubmit}>
-          Cadastrar Paciente
-        </button>
-      </div>
-    </main>
+      </main>
 
     </>
   );
